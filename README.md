@@ -4,6 +4,16 @@ Briefly highlight text after it is yanked.
 
 Requires `neovim >= 0.4`
 
+If you are using `neovim >= 0.5` this plugin is redundant, simply add the following to your `.vimrc/init.vim`
+```
+augroup yank_highlight
+  autocmd!
+  if exists('##TextYankPost')
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+  endif
+augroup END
+```
+
 ## Installation
 
 ### Using [vim-plug](https://github.com/junegunn/vim-plug)
